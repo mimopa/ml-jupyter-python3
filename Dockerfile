@@ -51,7 +51,8 @@ RUN jupyter notebook --generate-config --allow-root && \
     ipython profile create
 
 RUN echo "c.NotebookApp.ip = '*'" >>${CONFIG} && \
-    echo "c.NotebookApp.token = 'msc'" >>${CONFIG} && \
+    echo "c.NotebookApp.token = ''" >>${CONFIG} && \
+    echo "c.NotebookApp.password = ''" >>${CONFIG} && \
     echo "c.NotebookApp.open_browser = False" >>${CONFIG} && \
     echo "c.NotebookApp.iopub_data_rate_limit=10000000000" >>${CONFIG} && \
     echo "c.MultiKernelManager.default_kernel_name = 'python3'" >>${CONFIG} 
