@@ -12,6 +12,7 @@ RUN apt-get update && apt-get install -y \
     libmecab-dev \
 	gfortran \
     libav-tools \
+    python-opencv \
     python3-setuptools
 
 RUN apt-get clean && \
