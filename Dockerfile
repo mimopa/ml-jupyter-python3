@@ -40,6 +40,7 @@ RUN pip --no-cache-dir install \
         Pillow \
         h5py \
         google-api-python-client \
+        opencv-python \
         && \
     python -m ipykernel.kernelspec
 
