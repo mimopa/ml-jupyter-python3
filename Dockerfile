@@ -42,6 +42,7 @@ RUN pip --no-cache-dir install \
         h5py \
         google-api-python-client \
         opencv-python \
+        nltk \
         && \
     python -m ipykernel.kernelspec
 
