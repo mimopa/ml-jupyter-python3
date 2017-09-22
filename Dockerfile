@@ -2,6 +2,16 @@
 FROM python:3.6
 LABEL maintainer “Jun Terauchi<j_terauchi@msc-inc.co.jp>”
 
+# auto validate license
+RUN echo oracle-java8-installer shared/accepted-oracle-license-v1-1 select true | /usr/bin/debconf-set-selections
+
+# update repos
+RUN echo "deb http://ppa.launchpad.net/webupd8team/java/ubuntu trusty main" | tee /etc/apt/sources.list.d/webupd8team-java.list
+RUN echo "deb-src http://ppa.launchpad.net/webupd8team/java/ubuntu trusty main" | tee -a /etc/apt/sources.list.d/webupd8team-java.list
+RUN apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys EEA14886
+RUN echo "deb [arch=amd64] http://storage.googleapis.com/bazel-apt stable jdk1.8" | tee /etc/apt/sources.list.d/bazel.list
+RUN curl https://storage.googleapis.com/bazel-apt/doc/apt-key.pub.gpg | apt-key add -
+
 # Install dependencies
 RUN apt-get update && apt-get install -y \
     libblas-dev \
@@ -13,7 +23,11 @@ RUN apt-get update && apt-get install -y \
 	gfortran \
     libav-tools \
     python-opencv \
-    python3-setuptools
+    python3-setuptools \
+    zip \
+    vim \
+    oracle-java8-installer \
+    bazel
 
 RUN apt-get clean && \
     rm -rf /var/lib/apt/lists/*
@@ -23,7 +37,7 @@ ENV TENSORFLOW_VERSION 1.2.1
 RUN pip --no-cache-dir install \
     http://storage.googleapis.com/tensorflow/linux/cpu/tensorflow-${TENSORFLOW_VERSION}-cp36-cp36m-linux_x86_64.whl
 
-# Install Python library for Data Science
+# Install Python library for Data Science And Java8 for Bazel
 RUN pip --no-cache-dir install \
         keras \
         sklearn \
@@ -45,6 +59,9 @@ RUN pip --no-cache-dir install \
         nltk \
         && \
     python -m ipykernel.kernelspec
+
+# Set up Java Path
+ENV JAVA_HOME /usr/lib/jvm/java-8-oracle
 
 # Set up Jupyter Notebook config
 ENV CONFIG /root/.jupyter/jupyter_notebook_config.py
