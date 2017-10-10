@@ -15,12 +15,12 @@ RUN curl https://storage.googleapis.com/bazel-apt/doc/apt-key.pub.gpg | apt-key 
 # Install dependencies
 RUN apt-get update && apt-get install -y \
     libblas-dev \
-	liblapack-dev\
+    liblapack-dev\
     libatlas-base-dev \
     mecab \
     mecab-naist-jdic \
     libmecab-dev \
-	gfortran \
+    gfortran \
     libav-tools \
     python-opencv \
     python3-setuptools \
@@ -33,7 +33,7 @@ RUN apt-get clean && \
     rm -rf /var/lib/apt/lists/*
 
 # Install TensorFlow CPU version
-ENV TENSORFLOW_VERSION 1.2.1
+ENV TENSORFLOW_VERSION 1.3.0
 RUN pip --no-cache-dir install \
     http://storage.googleapis.com/tensorflow/linux/cpu/tensorflow-${TENSORFLOW_VERSION}-cp36-cp36m-linux_x86_64.whl
 
@@ -57,6 +57,7 @@ RUN pip --no-cache-dir install \
         google-api-python-client \
         opencv-python \
         nltk \
+        gitpython \
         && \
     python -m ipykernel.kernelspec
 
