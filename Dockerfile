@@ -33,9 +33,9 @@ RUN apt-get clean && \
     rm -rf /var/lib/apt/lists/*
 
 # Install TensorFlow CPU version
-ENV TENSORFLOW_VERSION 1.3.0
+ENV TENSORFLOW_VERSION 1.2.1
 RUN pip --no-cache-dir install \
-    http://storage.googleapis.com/tensorflow/linux/cpu/tensorflow-${TENSORFLOW_VERSION}-cp36-cp36m-manylinux1_x86_64.whl
+    http://storage.googleapis.com/tensorflow/linux/cpu/tensorflow-${TENSORFLOW_VERSION}-cp36-cp36m-linux_x86_64.whl
 
 # Install Python library for Data Science And Java8 for Bazel
 RUN pip --no-cache-dir install \
