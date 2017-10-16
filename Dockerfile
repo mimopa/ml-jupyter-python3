@@ -59,8 +59,13 @@ RUN pip --no-cache-dir install \
         nltk \
         gitpython \
         tensorflow-lattice \
+        requests-oauthlib \
         && \
     python -m ipykernel.kernelspec
+
+# Install forego
+RUN wget https://bin.equinox.io/c/ekMN3bCZFUn/forego-stable-linux-amd64.deb
+RUN dpkg -i forego-stable-linux-amd64.deb
 
 # Set up Java Path
 ENV JAVA_HOME /usr/lib/jvm/java-8-oracle
