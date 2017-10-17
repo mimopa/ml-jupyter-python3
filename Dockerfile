@@ -60,6 +60,7 @@ RUN pip --no-cache-dir install \
         gitpython \
         tensorflow-lattice \
         requests-oauthlib \
+        tweepy \
         && \
     python -m ipykernel.kernelspec
 
