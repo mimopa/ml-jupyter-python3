@@ -82,7 +82,7 @@ RUN echo "c.NotebookApp.ip = '*'" >>${CONFIG} && \
     echo "c.NotebookApp.token = ''" >>${CONFIG} && \
     echo "c.NotebookApp.password = ''" >>${CONFIG} && \
     echo "c.NotebookApp.open_browser = False" >>${CONFIG} && \
-    echo "c.NotebookApp.iopub_data_rate_limit=10000000000" >>${CONFIG} && \
+    echo "c.NotebookApp.iopub_data_rate_limit=20000000000" >>${CONFIG} && \
     echo "c.MultiKernelManager.default_kernel_name = 'python3'" >>${CONFIG} 
 
 RUN echo "c.InteractiveShellApp.exec_lines = ['%matplotlib inline']" >>${CONFIG_IPYTHON} 
