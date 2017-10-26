@@ -32,12 +32,11 @@ Windows:
 ### 2.2 run a new Docker container
 Linux/MacOS:
 
-    $ docker run -p 8888:8888 -v /data:/notebooks -it--rm mimopa/ml-jupyter-python3
+    $ docker run -p 8888:8888 -p 6006:6006 --name ml-container -v /data:/notebooks -it --rm mimopa/ml-jupyter-python3
 
 Windows:
 
-    $ docker run -p 8888:8888 -v /c/data:/notebooks -it --rm mimopa/ml-jupyter-python3
-
+    $ docker run -p 8888:8888 -p 6006:6006 --name ml-container -v /c/data:/notebooks -it --rm mimopa/ml-jupyter-python3
 
 
 >This container setup:
