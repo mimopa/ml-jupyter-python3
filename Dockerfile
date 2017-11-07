@@ -61,6 +61,18 @@ RUN pip --no-cache-dir install \
         tensorflow-lattice \
         requests-oauthlib \
         tweepy \
+        Flask \
+        backports.weakref \
+        bleach \
+        click \
+        html5lib \
+        itsdangerous \
+        Jinja2 \
+        Markdown \
+        MarkupSafe \
+        protobuf \
+        six \
+        Werkzeug \
         && \
     python -m ipykernel.kernelspec
 
