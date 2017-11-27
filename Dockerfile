@@ -73,6 +73,7 @@ RUN pip --no-cache-dir install \
         protobuf \
         six \
         Werkzeug \
+        flickrapi \
         && \
     python -m ipykernel.kernelspec
 
